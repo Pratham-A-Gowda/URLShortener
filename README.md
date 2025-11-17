@@ -1,6 +1,6 @@
 # Shortly - URL Shortener
 
-> A professional full-stack URL shortening service with a polished UI, admin panel, QR code generation, and analytics charts.
+> A professional full-stack URL shortening service with a polished UI, admin panel, QR code generation and analytics charts.
 
 ## 📋 Prerequisites
 
