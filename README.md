@@ -1,6 +1,6 @@
 # Shortly - URL Shortener
 
-> A professional full-stack URL shortening service with a polished UI, admin panel, QR code generation and analytics charts.
+> A professional full-stack URL shortening service with a polished UI, admin panel, QR code generation, and analytics charts.
 
 ## 📋 Prerequisites
 
@@ -232,4 +232,4 @@ This project is open source and available under the MIT License.
 ---
 
 **Happy Shortening! 🎉**
-testing ci/cd pipeline:)
+testing ci/cd pipeline:):)
