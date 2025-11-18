@@ -3,8 +3,8 @@ name: Backend CI
 on:
   push:
     paths:
-      - 'backend/**'
-      - '.github/workflows/backend-ci.yml'
+      - "backend/**"
+      - ".github/workflows/backend-ci.yml"
 
 jobs:
   test:
