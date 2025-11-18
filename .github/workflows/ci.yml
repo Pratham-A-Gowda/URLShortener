@@ -122,21 +122,21 @@ jobs:
 
       # ============== UPLOAD ARTIFACTS ==============
       - name: Upload backend coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: backend-coverage-report
           path: ./backend/coverage/
 
       - name: Upload frontend coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: frontend-coverage-report
           path: ./frontend/coverage/
 
       - name: Upload backend test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: backend-test-results
