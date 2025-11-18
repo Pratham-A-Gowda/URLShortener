@@ -72,24 +72,24 @@ cd URL_Shortener
 2. Create the database:
 
    ```bash
-   docker exec -it <postgres_container_name> psql -U postgres -c "CREATE DATABASE shortly_db;"
+   docker exec -it urlshortener-postgres-1 psql -U postgres -c "CREATE DATABASE shortly_db;"
    ```
 
 3. Create the database user:
 
    ```bash
-   docker exec -it <postgres_container_name> psql -U postgres -c "CREATE USER shortly_user WITH PASSWORD 'ShortlyPass123!';"
+   docker exec -it urlshortener-postgres-1 psql -U postgres -c "CREATE USER shortly_user WITH PASSWORD 'ShortlyPass123!';"
    ```
 
 4. Grant privileges:
 
    ```bash
-   docker exec -it <postgres_container_name> psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE shortly_db TO shortly_user;"
+   docker exec -it urlshortener-postgres-1 psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE shortly_db TO shortly_user;"
    ```
 
 5. Run migrations:
    ```bash
-   docker exec -i <postgres_container_name> psql -U shortly_user -d shortly_db < backend/migrations.sql
+   docker exec -i urlshortener-postgres-1 psql -U shortly_user -d shortly_db < backend/migrations.sql
    ```
 
 ### Step 5: Set Up Backend
