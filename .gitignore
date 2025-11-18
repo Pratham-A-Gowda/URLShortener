@@ -1,1 +1,32 @@
 node_modules
+.env
+.env.local
+.env.*.local
+
+# Test coverage
+coverage
+.nyc_output
+*.lcov
+
+# Jest
+junit.xml
+test-results.json
+
+# Vitest
+.vitest
+
+# Build
+dist
+build
+.cache
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
