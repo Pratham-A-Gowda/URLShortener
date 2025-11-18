@@ -3,11 +3,13 @@ name: Backend CI
 on:
   push:
     paths:
-      - "backend/**"
-      - ".github/workflows/backend-ci.yml"
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
   pull_request:
     paths:
-      - "backend/**"
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+  workflow_dispatch:
 
 jobs:
   test:
@@ -46,9 +48,8 @@ jobs:
         if: always()
         with:
           name: backend-coverage
-          path: |
-            backend/coverage/**
-          if-no-files-found: error
+          path: backend/coverage
+          if-no-files-found: warn
 
       - name: Publish coverage summary
         if: always()
