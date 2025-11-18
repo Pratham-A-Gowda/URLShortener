@@ -10,7 +10,29 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Filter paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            backend:
+              - 'backend/**'
+              - '.github/workflows/backend-ci.yml'
+
+  backend-tests:
+    name: Backend unit tests
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,3 +58,21 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+  noop:
+    name: No backend changes (fast pass)
+    needs: changes
+    if: needs.changes.outputs.backend != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Summary
+        run: |
+          echo "No backend changes detected. Skipping backend tests."
+          echo "Commit: $GITHUB_SHA"
+          echo "Branch: ${GITHUB_REF#refs/heads/}"
+          echo "Changed files in last commit:" \
+            && git --no-pager diff --name-only HEAD^ HEAD || true
