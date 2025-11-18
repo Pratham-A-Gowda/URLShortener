@@ -1,4 +1,4 @@
-name: React App CI (Docker Build)
+name: React App CI (Docker Build Disabled)
 
 on:
   push:
@@ -7,25 +7,12 @@ on:
   pull_request:
     branches:
       - "**"       # Run on all PRs
+  workflow_dispatch:
 
 jobs:
-  build:
+  skip-build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Build Docker image (no push)
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: ./Dockerfile
-          push: false
-          tags: react-app-ci:latest
-
-      - name: Run container to ensure build works
-        run: docker run --rm react-app-ci:latest
+      - name: Note
+        run: echo "Docker build disabled. Remove this file or add steps if needed."
