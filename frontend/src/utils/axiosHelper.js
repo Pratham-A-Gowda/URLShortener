@@ -1,0 +1,1 @@
+export function authHeader(token){ return token ? { Authorization: 'Bearer ' + token } : {} }
