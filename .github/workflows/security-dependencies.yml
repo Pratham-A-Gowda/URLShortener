@@ -10,7 +10,7 @@ on:
     branches:
       - "main"
   schedule:
-    - cron: '0 0 * * 1'  # Run weekly on Mondays at midnight
+    - cron: "0 0 * * 1" # Run weekly on Mondays at midnight
   workflow_dispatch:
 
 jobs:
